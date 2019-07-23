@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HomeWork_Giruta_1</title>
+</head>
+<script>
+    //---------------------
+    // УСЛОВНЫЕ ОПЕРАТОРЫ
+    //---------------------
+
+    //1.1 Если а – четное посчитать а*б, иначе а+б
+
+    const a = 33;
+    const b = 2;
+
+    let result_1 = (a % 2 === 0) ? a * b : a + b;
+
+    console.log('------------1.1--------------');
+    console.log('result_1 = ', result_1);
+
+    //1.2 Определить какой четверти принадлежит точка с координатами (х,у)
+    console.log('------------1.2--------------');
+
+    const x = 345;
+    const y = -87;
+
+    if (x === 0 && y === 0) {
+        console.log(`точка с координатами (${x},${y}) являяется началом координат`);
+    } else if (x > 0 && y > 0) {
+        console.log(`точка с координатами (${x},${y}) принадлежит 1 четверти`);
+    } else if (x < 0 && y > 0) {
+        console.log(`точка с координатами (${x},${y}) принадлежит 2 четверти`);
+    } else if (x < 0 && y < 0) {
+        console.log(`точка с координатами (${x},${y}) принадлежит 3 четверти`);
+    } else {
+        console.log(`точка с координатами (${x},${y}) принадлежит 4 четверти`);
+    }
+
+    //1.3 Найти суммы только положительных из трех чисел
+
+    const k = -3;
+          l = 2;
+          m = 10;
+    let sumPositive = 0;
+
+    if (k >= 0) sumPositive += k;
+    if (l >= 0) sumPositive += l;
+    if (m >= 0) sumPositive += m;
+
+    console.log('------------1.3--------------');
+    console.log(`сумма только положительных из трех чисел ${k}, ${l}, ${m} = `, sumPositive);
+
+    //1.4 Посчитать выражение макс(а*б*с, а+б+с)+3
+
+    const d = 2;
+        e = 3;
+        f = 4;
+    let num1 = d * e * f;
+    let num2 = d + e + f;
+
+    let value = (num1 > num2) ? num1 + 3 : num2 + 3;
+
+    console.log('------------1.4--------------');
+    console.log(`выражение max(${d} * ${e} * ${f}, ${d} + ${e} + ${f}) + 3 = `, value);
+
+    //1.5 Написать программу определения оценки студента по его рейтингу
+    console.log('------------1.5--------------');
+
+    let rating = 89;
+
+    switch (true) {
+        case rating >= 0 && rating <= 19:
+            console.log('оценка студента  F');
+            break;
+        case rating >= 20 && rating <= 39:
+            console.log('оценка студента  E');
+            break;
+        case rating >= 40 && rating <= 59:
+            console.log('оценка студента  D');
+            break;
+        case rating >= 60 && rating <= 74:
+            console.log('оценка студента  C');
+            break;
+        case rating >= 75 && rating <= 89:
+            console.log('оценка студента  B');
+            break;
+        case rating >= 90 && rating <= 100:
+            console.log('оценка студента  A');
+            break;
+        default:
+            console.log('студент не аттестован');
+    }
+
+</script>
+<body>
+</body>
+</html>
