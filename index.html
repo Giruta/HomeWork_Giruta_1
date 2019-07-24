@@ -92,6 +92,126 @@
             console.log('студент не аттестован');
     }
 
+    //--------
+    // ЦИКЛЫ
+    //--------
+
+    //2.1 Найти сумму четных чисел и их количество в диапазоне от 1 до 99
+
+    let summa = 0; quantity = 0;
+
+
+    for (let i = 1; i < 100; i++) {
+        if (i % 2 === 0) {
+            summa += i;
+            quantity ++;
+        }
+    }
+    console.log('');
+    console.log('------------2.1--------------');
+    console.log ('Сумма четных чисел в [1..99] = ', summa, 'их количество = ', quantity);
+
+    //2.2 Проверить простое ли число?
+
+    const n = 21;
+    let flag = false;
+    let i = 2;
+    const half = n/2;
+
+    do {
+        if (n % i === 0) { flag = true; }
+            else  i++;
+    } while (i <= half && !flag)
+
+    console.log('------------2.2--------------');
+    flag ? console.log(`Число ${n} не является простым`):
+           console.log(`Число ${n} является простым`);
+
+    //2.3 Найти корень натурального числа с точностью до целого
+    // (рассмотреть вариант последовательного подбора и метод бинарного поиска)
+
+    // 2.3.1 последовательный подбор
+
+    function sequentialSearch(value) {
+        for (let i = 1; i < value/2; i++) {
+            if ((i - 1) * (i - 1) < value && i * i > value) {
+                console.log('------------2.3.1--------------');
+                console.log (`корень натурального числа ${value} с точностью до целого равен ${i-1}`);
+                break;
+            }
+        }
+    }
+
+    sequentialSearch(200);
+
+    // 2.3.2 бинарный поиск
+
+    function binarySearch (value) {
+        let end = value;
+        let start = 0;
+        let flag = false;
+        let middle;
+        while (start <= end && !flag) {
+            middle = Math.floor((end - start)/2);
+            if ((start + middle) * (start + middle) <= value && (start + middle + 1) * (start + middle + 1) > value) {
+                flag = true;
+                console.log('------------2.3.2--------------');
+                console.log (`корень натурального числа ${value} с точностью до целого равен ${middle + start}`);
+            } else if ((start + middle) * (start + middle) < value) {
+                start = start + middle + 1;
+            } else end = middle - 1;
+        }
+    }
+    
+    binarySearch(25);
+    
+    // 2.4 Вычислить факториал числа n. n! = 1*2*…*n-1*n;!
+    
+    function factorial(n) {
+        let result = 1;
+        while(n){
+            result *= n--;
+        }
+        console.log('------------2.4--------------');
+        console.log(`Факториал равен`, result);
+        return result;
+    }
+
+    factorial(6);
+
+    // 2.5 Посчитать сумму цифр заданного числа
+
+    function sumNumbers(number) {
+        let prop = number;
+        let sum = 0;
+        do {
+            sum += prop % 10;
+            prop = prop / 10 ^0;
+        } while (prop >= 1);
+        console.log('------------2.5--------------');
+        console.log(`сумма цифр числа ${number} равна`, sum);
+        return sum;
+    }
+
+    sumNumbers(123456);
+
+    // 2.6  Вывести число, которое является зеркальным отображением
+    // последовательности цифр заданного числа, например,
+    // задано число 123, вывести 321.
+    
+    function mirrorNumbers(number) {
+        let prop = 0;
+        while (number) {
+            prop = prop * 10 + (number % 10);
+            number = number / 10 ^0;
+        }
+
+        return prop;
+    }
+
+    console.log('------------2.6--------------');
+    console.log('зеркальное отображение числа равно ', mirrorNumbers(123));
+
 </script>
 <body>
 </body>
